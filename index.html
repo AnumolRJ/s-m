@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Smrithi 🎂 - Vintage Postcard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for Handwriting and Vintage Typewriter looks -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1f3726; /* Warm vintage base */
+            /* subtle noise for the background */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.06"/></svg>');
+            font-family: 'Caveat', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Hide floating elements outside */
+            position: relative;
+        }
+
+        /* Ambient floating elements for childhood memories / cartoon vibe */
+        .floating {
+            position: absolute;
+            animation: float-up linear infinite;
+            filter: sepia(0.7) opacity(0.4) contrast(0.8); /* Vintage tint */
+            pointer-events: none;
+            z-index: 0;
+        }
+        .f1 { left: 10%; animation-duration: 10s; font-size: 4rem; animation-delay: 2s; }
+        .f2 { left: 80%; animation-duration: 15s; font-size: 5rem; animation-delay: 0s; }
+        .f3 { left: 40%; animation-duration: 8s; font-size: 3rem; animation-delay: 5s; }
+        .f4 { left: 60%; animation-duration: 12s; font-size: 4.5rem; animation-delay: 1s; }
+        .f5 { left: 25%; animation-duration: 6s; font-size: 3.5rem; animation-delay: 7s; }
+        .f6 { left: 70%; animation-duration: 9s; font-size: 4rem; animation-delay: 4s; }
+
+        @keyframes float-up {
+            0% { transform: translateY(110vh) rotate(-15deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-30vh) rotate(30deg); opacity: 0; }
+        }
+
+        /* Postcard Container */
+        .postcard {
+            position: relative;
+            z-index: 10;
+            background: #f3dc85;
+            width: 850px;
+            max-width: 95vw;
+            height: clamp(500px, 70vh, 600px);
+            border-radius: 4px;
+            box-shadow: 10px 10px 25px rgba(0,0,0,0.3), inset 0 0 50px rgba(139, 69, 19, 0.08);
+            display: flex;
+            padding: 25px;
+            box-sizing: border-box;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.04"/></svg>');
+            border: 2px solid #d4c0a5;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .postcard:hover {
+            transform: scale(1.02) rotate(-1deg);
+        }
+
+        /* Center Divider */
+        .divider {
+            width: 2px;
+            background-color: #525615;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        /* Left Side (Photo & Message) */
+        .left-side {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            color: #0a0807;
+        }
+
+        /* Vintage Polaroid Frame for the Image */
+        .photo-container {
+            width: 200px;
+            height: 220px;
+            background: #fff;
+            padding: 10px 10px 45px 10px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.25);
+            transform: rotate(-3deg);
+            position: relative;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Tape effect */
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(2deg);
+            width: 90px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            backdrop-filter: blur(2px);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Enhance black & white vintage feel */
+            filter: grayscale(100%) sepia(35%) contrast(1.1) brightness(0.95);
+        }
+
+        .wish-text {
+            font-size: 28px;
+            text-align: center;
+            line-height: 1.25;
+            word-spacing: 2px;
+            padding: 0 10px;
+        }
+
+        /* Right Side (Stamp, Address, Signature) */
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .stamp-area {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .stamp {
+            width: 90px;
+            height: 110px;
+            background: #faf4e8;
+            padding: 5px;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+            position: relative;
+            transform: rotate(4deg);
+            border: 1px dashed #c4a482; /* Perforated illusion */
+        }
+
+        .stamp img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Blend the generated stamp slightly to fit the paper */
+            filter: sepia(30%) brightness(0.95) contrast(0.9);
+        }
+
+        /* Postmark Overlay */
+        .postmark {
+            position: absolute;
+            top: 20px;
+            right: 60px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid rgba(100, 60, 50, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-12deg);
+            pointer-events: none;
+            font-family: 'Special Elite', cursive;
+            color: rgba(100, 60, 50, 0.6);
+            font-size: 13px;
+            text-align: center;
+            line-height: 1;
+            z-index: 5;
+        }
+
+        .postmark::after {
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 2px;
+            background: rgba(100, 60, 50, 0.6);
+        }
+
+        .address-box {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .line {
+            height: 2px;
+            background-color: #525615;
+            width: 90%;
+            position: relative;
+        }
+
+        .recipient-name {
+            position: absolute;
+            bottom: 5px;
+            left: 15px;
+            font-size: 38px;
+            color: #271f19;
+        }
+
+        .recipient-address {
+            position: absolute;
+            bottom: 5px;
+            left: 15px;
+            font-size: 20px;
+            color: #130f0c;
+        }
+
+        /* Signature Space */
+        .signature-area {
+            margin-top: auto;
+            text-align: right;
+            padding-right: 40px;
+            font-size: 30px;
+            color: #2b1f17;
+            font-weight: 600;
+        }
+
+        .actual-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 25px; /* Naturally small font, sizing up for readability */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Responsive adaptations */
+        @media (max-width: 800px) {
+            .postcard {
+                flex-direction: column;
+                height: auto;
+                min-height: 85vh;
+                padding: 15px;
+            }
+            .divider {
+                width: 100%;
+                height: 2px;
+                margin: 25px 0;
+            }
+            .postmark {
+                right: 30px;
+            }
+            .photo-container {
+                width: 160px;
+                height: 180px;
+                margin-top: 10px;
+            }
+            .wish-text {
+                font-size: 24px;
+            }
+            .address-box {
+                gap: 50px;
+                margin-top: 20px;
+            }
+            .recipient-name {
+                font-size: 26px;
+            }
+            .recipient-address {
+                font-size: 16px;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            .signature-area {
+                margin-top: 40px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Subtle Vintage Aesthetic Animations -->
+    <div class="floating f1"><span style="color:white;">&#9825;</span>​​</div> <!-- Vintage Camera -->
+    <div class="floating f2"><span style="color:white;">&#9825;</span></div> <!-- Coffee -->
+    <div class="floating f3"><span style="color:white;">&#9825;</span></div> <!-- Sparkles -->
+    <div class="floating f4"><span style="color:white;">&#9825;</span></div> <!-- Love Letter -->
+    <div class="floating f5"><span style="color:white;">&#9825;</span></div> <!-- Antique Clock -->
+    <div class="floating f6"><span style="color:white;">&#9825;</span></div> <!-- Rose -->
+
+    <!-- Main Postcard -->
+    <div class="postcard">
+        <!-- Left Side: Theme Photo & Message -->
+        <div class="left-side">
+            <!-- Framed black-and-white theme layout -->
+            <div class="photo-container">
+                <img src="images/little-one.jpeg" alt="Childhood Memory">
+            </div>
+            
+            <div class="wish-text">
+                <!-- Wishing you a magical day filled with beautiful memories, love, and laughter! ❤️<br> -->
+                Happy Birthday<br><br>
+               സ്മൃതി കുട്ടൻ ❤️
+            </div>
+        </div>
+
+        <!-- Vertical Divider -->
+        <div class="divider"></div>
+
+        <!-- Right Side: Stamp, Address & Signature -->
+        <div class="right-side">
+            <div class="stamp-area">
+                <div class="stamp">
+                    <img src="images/stamp.png" alt="Indian Vintage Stamp">
+                </div>
+                <!-- <div class="postmark">
+                    INDIA POST<br><br>SMRITHI
+                </div> -->
+            </div>
+
+            <div class="address-box">
+                <div class="line">
+                    <span class="recipient-name">To: Smrithi</span>
+                </div>
+                <div class="line">
+                    <span class="recipient-address">Meleveedu(H.o), chembrakulam,</span>
+                </div>
+                <div class="line">
+                    <span class="recipient-address">kottayi(P.O), Palakkad, pincode: 678572</span>
+                </div>
+            </div>
+
+            <!-- Custom Signature Space -->
+            <div class="signature-area">
+                - <span class="actual-signature">Anu</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
